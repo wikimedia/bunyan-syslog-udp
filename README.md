@@ -1,4 +1,4 @@
-# node-bunyan-syslog-udp
+# node-bunyan-syslog-udp [![Build Status](https://travis-ci.org/wikimedia/node-bunyan-syslog-udp.svg?branch=master)](https://travis-ci.org/wikimedia/node-bunyan-syslog-udp)
 A pure-JS implementation of bynuan syslog stream on top of UDP protocol.
 
 Usage:
