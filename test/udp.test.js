@@ -14,7 +14,7 @@ describe('Sample logging', function() {
                 var stream = bsyslog.createBunyanStream({
                     host: '127.0.0.1',
                     port: 12340 + i,
-                    facility: bsyslog.facility.local0
+                    facility: 'local0'
                 });
                 var log = bunyan.createLogger({
                     name: 'udptest',
