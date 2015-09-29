@@ -1,10 +1,10 @@
-# node-bunyan-syslog-udp [![Build Status](https://travis-ci.org/wikimedia/node-bunyan-syslog-udp.svg?branch=master)](https://travis-ci.org/wikimedia/node-bunyan-syslog-udp)
+# bunyan-syslog-udp [![Build Status](https://travis-ci.org/wikimedia/bunyan-syslog-udp.svg?branch=master)](https://travis-ci.org/wikimedia/bunyan-syslog-udp)
 A pure-JS implementation of bynuan syslog stream on top of UDP protocol.
 
 Usage:
 
 ```javascript
-var bsyslog = require('node-bunyan-syslog-udp');
+var bsyslog = require('bunyan-syslog-udp');
 var log = bunyan.createLogger({
   streams: [{
     type: 'raw', // Always use 'raw' bunyan stream
