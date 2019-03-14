@@ -37,7 +37,7 @@ function createLogSamples(useCee = false) {
                         throw new Error('No severity code in datagram ' + msg);
                     }
                     assert.deepEqual(severityCode[1], '' + expectedSeverity[i]);
-                    var payload = (useCee ? /@cee: (\{.+})$/ : /:(\{.+})$/).exec(msg);
+                    var payload = (useCee ? /@cee:\s*(\{.+})$/ : /:(\{.+})$/).exec(msg);
                     if (!payload) {
                         throw new Error('No payload found in datagram ' + msg);
                     }
