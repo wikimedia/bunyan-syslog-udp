@@ -11,7 +11,7 @@ Verify that syslog via UDP is enabled on your system. By default, the syslog dae
 
 In order to take advantage of the @CEE cookie functionality either `rsyslog` or `syslog-ng` must be installed.
 
-For rsyslog, make sure the mmjsonparse modules is loaded in `/etc/rsyslog.conf`
+For rsyslog, make sure the mmjsonparse module is loaded in `/etc/rsyslog.conf`
 
 ```bash
 module(load="mmjsonparse") # for parsing CEE-enhanced syslog messages
