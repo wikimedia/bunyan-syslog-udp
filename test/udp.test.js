@@ -3,7 +3,7 @@ var bsyslog = require('../lib');
 var assert = require('assert');
 var dgram = require('dgram');
 
-function createLogSamples(useCee = false) {
+function createLogSamples(prefix = '') {
     var severityList = ['trace', 'debug', 'info', 'warn', 'error', 'fatal'];
     var expectedSeverity = [135, 135, 134, 132, 131, 128];
     for (var i = 0; i < severityList.length; i++) {
@@ -14,7 +14,7 @@ function createLogSamples(useCee = false) {
                     host: '127.0.0.1',
                     port: 12340 + i,
                     facility: 'local0',
-                    ceeCookie: useCee
+                    prefix: prefix
                 });
                 var log = bunyan.createLogger({
                     name: 'udptest',
@@ -37,7 +37,7 @@ function createLogSamples(useCee = false) {
                         throw new Error('No severity code in datagram ' + msg);
                     }
                     assert.deepEqual(severityCode[1], '' + expectedSeverity[i]);
-                    var payload = (useCee ? /@cee:\s*(\{.+})$/ : /:(\{.+})$/).exec(msg);
+                    var payload = (prefix === '' ? /:(\{.+})$/ : /@cee:\s*(\{.+})$/).exec(msg);
                     if (!payload) {
                         throw new Error('No payload found in datagram ' + msg);
                     }
@@ -56,10 +56,10 @@ function createLogSamples(useCee = false) {
 
 describe('Sample logging', function() {
     this.timeout(1000);
-    createLogSamples(false);
+    createLogSamples();
 });
 
 describe('Sample @CEE logging', function() {
     this.timeout(1000);
-    createLogSamples(true);
+    createLogSamples('@cee:');
 });

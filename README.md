@@ -28,7 +28,7 @@ var bstream = bsyslog.createBunyanStream({
       host: '127.0.0.1',    // Optional. Defaults to '127.0.0.1'
       port: 514,            // Optional. Defaults to 514
       facility: 'local0',   // Case-insensitive. Optional. Defaults to local0
-      ceeCookie: true       // Add @cee cookie to message
+      prefix: '@cee: '      // Add @cee cookie to message
     });
 
 var log = bunyan.createLogger({
